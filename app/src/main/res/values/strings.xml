@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MIPT_4_praktinis</string>
+    <string name="note_text">Notes</string>
+    <string name="save_and_close">Save and Close</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
 </resources>
