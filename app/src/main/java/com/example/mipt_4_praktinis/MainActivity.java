@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.logMessage("onCreate called");
 
         this.lvNotes = findViewById(R.id.lvNotes);
         this.tvNoNotesMessage = findViewById(R.id.tvNoNotes);
@@ -42,14 +43,16 @@ public class MainActivity extends AppCompatActivity {
             String selectedTitle = listNoteTitles.get(position);
             String fullContent = notesMap.get(selectedTitle);
             Intent intent = new Intent(MainActivity.this, ViewEditNoteActivity.class);
-            intent.putExtra("NOTE_TITLE", selectedTitle);
-            intent.putExtra("NOTE_CONTENT", fullContent);
+            intent.putExtra(Constants.NOTE_TITLE, selectedTitle);
+            intent.putExtra(Constants.NOTE_CONTENT, fullContent);
             startActivity(intent);
+            Log.logMessage("Item clicked: " + selectedTitle);
         });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.logMessage("onCreateOptionsMenu called");
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.notes_options_menu, menu);
         return true;
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        Log.logMessage("onStart called");
+
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         Set<String> savedTitles = sharedPref.getStringSet(Constants.NOTES_TITLES_KEY, null);
         Map<String, ?> allNotes = sharedPref.getAll();
@@ -78,11 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.logMessage("onOptionsItemSelected called");
+
         if (item.getItemId() == R.id.add_note) {
+            Log.logMessage("Add note selected");
             Intent i = new Intent(this, AddNoteActivity.class);
             startActivityForResult(i, 1);
             return true;
         } else if (item.getItemId() == R.id.delete_note) {
+            Log.logMessage("Delete note selected");
             Intent i = new Intent(this, DeleteNoteActivity.class);
             startActivity(i);
             return true;
@@ -94,11 +103,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.logMessage("onActivityResult called");
+
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            String noteTitle = data.getStringExtra("NOTE_TITLE");
-            String noteContent = data.getStringExtra("NOTE_CONTENT");
+            String noteTitle = data.getStringExtra(Constants.NOTE_TITLE);
+            String noteContent = data.getStringExtra(Constants.NOTE_CONTENT);
 
             if (noteTitle != null && noteContent != null) {
+                Log.logMessage("New note added: " + noteTitle);
                 listNoteTitles.add(noteTitle);
                 notesMap.put(noteTitle, noteContent);
                 adapter.notifyDataSetChanged();
@@ -116,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkIfListIsEmpty() {
+        Log.logMessage("checkIfListIsEmpty called");
+
         if (listNoteTitles.isEmpty()) {
             tvNoNotesMessage.setVisibility(View.VISIBLE);
             lvNotes.setVisibility(View.GONE);
@@ -124,6 +138,4 @@ public class MainActivity extends AppCompatActivity {
             lvNotes.setVisibility(View.VISIBLE);
         }
     }
-
 }
-

@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">MIPT_4_praktinis</string>
+    <string name="app_name" translatable="false">MIPT_4_praktinis</string>
     <string name="note_text">Notes</string>
     <string name="save_and_close">Save and Close</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="delete_selected">Delete Selected</string>
     <string name="empty_list">Empty</string>
+    <string name="add_note">Add Note</string>
+    <string name="delete_note">Delete Note</string>
 </resources>

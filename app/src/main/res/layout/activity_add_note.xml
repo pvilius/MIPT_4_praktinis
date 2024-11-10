@@ -16,7 +16,7 @@
     <EditText
         android:id="@+id/noteContent"
         android:layout_width="match_parent"
-        android:layout_height="408dp"
+        android:layout_height="401dp"
         android:fontFamily="@font/poppins_bold"
         android:hint="@string/content"
         android:inputType="textMultiLine"
@@ -25,11 +25,11 @@
     <Button
         android:id="@+id/saveNoteButton"
         android:layout_width="379dp"
-        android:layout_height="103dp"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="#f65215"
+        android:layout_height="127dp"
         android:background="@drawable/list_item_border"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/save_and_close"
+        android:textColor="#f65215"
         android:textSize="40sp" />
 
 </LinearLayout>

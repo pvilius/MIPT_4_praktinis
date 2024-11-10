@@ -37,6 +37,6 @@
         android:layout_height="wrap_content"
         android:background="#606060"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/tvNotes"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

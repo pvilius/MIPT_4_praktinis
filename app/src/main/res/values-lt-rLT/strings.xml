@@ -1,0 +1,10 @@
+<resources>
+    <string name="note_text">Užrašai</string>
+    <string name="save_and_close">Išsaugoti ir uždaryti</string>
+    <string name="title">Pavadinimas</string>
+    <string name="content">Turinys</string>
+    <string name="delete_selected">Ištrinti pasirinktą</string>
+    <string name="empty_list">Tuščia</string>
+    <string name="add_note">Sukurti užrašą</string>
+    <string name="delete_note">Ištrinti užrašą</string>
+</resources>
