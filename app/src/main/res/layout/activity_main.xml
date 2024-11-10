@@ -19,6 +19,18 @@
         app:layout_constraintRight_toRightOf="parent"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNoNotes"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:gravity="center"
+        android:textColor="#f65215"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/empty_list"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/lvNotes"
         android:layout_width="match_parent"

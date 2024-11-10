@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#eae9ea">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+        android:id="@+id/lvDeleteNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="485dp"
+        />
+
+    <TextView
+        android:id="@+id/tvNoNotes"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:gravity="center"
+        android:textColor="#f65215"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/empty_list"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnDeleteSelected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/list_item_border"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/delete_selected"
+        android:textColor="#f65215"
+        android:textSize="40sp" />
+</LinearLayout>

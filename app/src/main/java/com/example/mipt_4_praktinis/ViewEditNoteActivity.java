@@ -45,7 +45,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
             String updatedContent = noteContent.getText().toString().trim();
 
             if (updatedTitle.isEmpty() || updatedContent.isEmpty()) {
-                Toast.makeText(ViewEditNoteActivity.this, "Title and content cannot be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewEditNoteActivity.this, "WARNING! Please enter both title and content", Toast.LENGTH_SHORT).show();
                 return;
             }
 

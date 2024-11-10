@@ -46,7 +46,6 @@ public class AddNoteActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu with the home icon
         getMenuInflater().inflate(R.menu.notes_home_menu, menu);
         return true;
     }

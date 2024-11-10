@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".AddNoteActivity" />
         <activity android:name=".ViewEditNoteActivity" />
+        <activity android:name=".DeleteNoteActivity" />
 
     </application>
 

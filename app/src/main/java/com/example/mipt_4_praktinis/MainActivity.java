@@ -7,8 +7,11 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,13 +25,16 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> listNoteTitles = new ArrayList<>();
     ArrayAdapter<String> adapter;
     ListView lvNotes;
+    TextView tvNoNotesMessage;
     Map<String, String> notesMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         this.lvNotes = findViewById(R.id.lvNotes);
+        this.tvNoNotesMessage = findViewById(R.id.tvNoNotes);
         this.adapter = new ArrayAdapter<>(this, R.layout.list_item, this.listNoteTitles);
         this.lvNotes.setAdapter(adapter);
 
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             this.adapter.notifyDataSetChanged();
+            checkIfListIsEmpty();
         }
     }
 
@@ -102,7 +109,21 @@ public class MainActivity extends AppCompatActivity {
                 editor.putStringSet(Constants.NOTES_TITLES_KEY, updatedTitlesSet);
                 editor.putString(noteTitle, noteContent);
                 editor.apply();
+
+                checkIfListIsEmpty();
             }
         }
     }
+
+    private void checkIfListIsEmpty() {
+        if (listNoteTitles.isEmpty()) {
+            tvNoNotesMessage.setVisibility(View.VISIBLE);
+            lvNotes.setVisibility(View.GONE);
+        } else {
+            tvNoNotesMessage.setVisibility(View.GONE);
+            lvNotes.setVisibility(View.VISIBLE);
+        }
+    }
+
 }
+
